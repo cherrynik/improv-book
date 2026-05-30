@@ -1,7 +1,9 @@
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { House } from "lucide-react";
 import { ScrambleText } from "@/shared/ui";
 import { useI18n } from "@/shared/i18n";
+import { useRipple } from "@/shared/lib/useRipple";
+import { cn } from "@/shared/lib/cn";
 import type { Section } from "@/entities/section";
 
 interface LessonNavProps {
@@ -11,8 +13,31 @@ interface LessonNavProps {
   onHome: () => void;
 }
 
-const CARD =
-  "block w-full cursor-pointer rounded-card p-4 transition-transform duration-200 active:scale-[0.98]";
+interface NavCardProps {
+  onClick: () => void;
+  className?: string;
+  style?: CSSProperties;
+  children: ReactNode;
+}
+
+function NavCard({ onClick, className, style, children }: NavCardProps) {
+  const { onPointerDown, ripples } = useRipple();
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      onPointerDown={onPointerDown}
+      style={style}
+      className={cn(
+        "relative block w-full cursor-pointer overflow-hidden rounded-card p-4 transition-transform duration-200 active:scale-[0.98]",
+        className,
+      )}
+    >
+      {ripples}
+      <span className="relative block">{children}</span>
+    </button>
+  );
+}
 
 function accentVars(section: Section): CSSProperties {
   return {
@@ -25,11 +50,10 @@ export function LessonNav({ prev, next, onOpen, onHome }: LessonNavProps) {
   const { t } = useI18n();
 
   const sectionCard = (section: Section, dir: "prev" | "next") => (
-    <button
-      type="button"
+    <NavCard
       onClick={() => onOpen(section.id)}
       style={accentVars(section)}
-      className={`${CARD} bg-accent-soft ${dir === "prev" ? "text-left" : "text-right"}`}
+      className={`bg-accent-soft ${dir === "prev" ? "text-left" : "text-right"}`}
     >
       <div className="type-card-eyebrow text-accent">
         {dir === "prev" && "← "}
@@ -39,16 +63,16 @@ export function LessonNav({ prev, next, onOpen, onHome }: LessonNavProps) {
       <div className="type-card-title mt-1.5 text-ink">
         <ScrambleText text={section.title} />
       </div>
-    </button>
+    </NavCard>
   );
 
   const homeCard = (
-    <button type="button" onClick={onHome} className={`${CARD} bg-ink text-left`}>
-      <House className="h-5 w-5 text-paper/70" />
+    <NavCard onClick={onHome} className="bg-ink text-left">
+      <House className="h-5 w-5 text-icon-muted" />
       <div className="type-card-title mt-2 text-paper">
         <ScrambleText text={t.back} />
       </div>
-    </button>
+    </NavCard>
   );
 
   if (next) {

@@ -35,7 +35,7 @@ export function CommunityCard() {
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-white/15 transition-colors duration-200 hover:bg-white/25"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/15 transition-colors duration-200 hover:bg-white/25"
             >
               <InstagramIcon className="h-5 w-5" />
             </a>
@@ -44,7 +44,7 @@ export function CommunityCard() {
               target="_blank"
               rel="noreferrer"
               aria-label="Telegram"
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-white/15 transition-colors duration-200 hover:bg-white/25"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/15 transition-colors duration-200 hover:bg-white/25"
             >
               <TelegramIcon className="h-5 w-5" />
             </a>

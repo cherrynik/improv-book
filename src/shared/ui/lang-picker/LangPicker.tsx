@@ -17,7 +17,7 @@ export function LangPicker({ className }: LangPickerProps) {
 
   return (
     <div className={cn("inline-flex items-center gap-1.5", className)}>
-      <Globe className="mr-1 h-4 w-4 text-[#787878]" />
+      <Globe className="mr-1 h-4 w-4 text-icon-muted" />
       {LOCALES.map(({ code, label }) => (
         <button
           key={code}

@@ -1,13 +1,8 @@
-import {
-  useEffect,
-  useRef,
-  useState,
-  type CSSProperties,
-  type PointerEvent as ReactPointerEvent,
-} from "react";
-import { Badge, ScrambleText } from "@/shared/ui";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { Badge, GlassButton, ScrambleText } from "@/shared/ui";
 import { cn } from "@/shared/lib/cn";
 import { useI18n } from "@/shared/i18n";
+import { useRipple } from "@/shared/lib/useRipple";
 import type { Section } from "../model/types";
 
 const MAX_TILT = 13;
@@ -30,8 +25,7 @@ export function SectionCard({ section, index, onOpen }: SectionCardProps) {
   const [tilt, setTilt] = useState({ rotateX: 0, rotateY: 0 });
   const [glare, setGlare] = useState({ x: 50, y: 50 });
   const [pressed, setPressed] = useState(false);
-  const [ripples, setRipples] = useState<{ id: number; x: number; y: number }[]>([]);
-  const rippleId = useRef(0);
+  const { onPointerDown: rippleDown, ripples } = useRipple();
   const { t } = useI18n();
   const ready = section.status === "ready";
 
@@ -89,16 +83,6 @@ export function SectionCard({ section, index, onOpen }: SectionCardProps) {
     };
   }, [ready]);
 
-  const addRipple = (event: ReactPointerEvent<HTMLButtonElement>) => {
-    if (!ready) return;
-    const rect = event.currentTarget.getBoundingClientRect();
-    const id = rippleId.current++;
-    setRipples((current) => [
-      ...current,
-      { id, x: event.clientX - rect.left, y: event.clientY - rect.top },
-    ]);
-  };
-
   const elevation = smooth(proximity);
   const scale = pressed ? 0.985 : 1;
   const lift = -ELEVATE * elevation;
@@ -124,7 +108,7 @@ export function SectionCard({ section, index, onOpen }: SectionCardProps) {
         disabled={!ready}
         onClick={() => ready && onOpen(section)}
         onPointerDown={(event) => {
-          addRipple(event);
+          if (ready) rippleDown(event);
           if (event.pointerType !== "touch") setPressed(true);
         }}
         onPointerUp={() => setPressed(false)}
@@ -158,19 +142,7 @@ export function SectionCard({ section, index, onOpen }: SectionCardProps) {
           />
         )}
 
-        {ripples.map((ripple) => (
-          <span
-            key={ripple.id}
-            aria-hidden
-            className="ripple"
-            style={{ left: ripple.x, top: ripple.y }}
-            onAnimationEnd={() =>
-              setRipples((current) =>
-                current.filter((item) => item.id !== ripple.id),
-              )
-            }
-          />
-        ))}
+        {ripples}
 
         <div className="type-watermark-card pointer-events-none absolute -right-2 -bottom-7">
           {section.number}
@@ -197,12 +169,12 @@ export function SectionCard({ section, index, onOpen }: SectionCardProps) {
         </p>
 
         {ready && (
-          <div className="type-cta relative mt-5 inline-flex items-center gap-2 rounded-pill bg-white/20 px-[15px] py-2 transition-colors duration-200 group-hover:bg-white/30">
+          <GlassButton as="div" className="type-cta relative mt-5 group-hover:bg-white/30">
             <ScrambleText text={t.start} />
             <span className="transition-transform duration-200 ease-out group-hover:translate-x-1">
               →
             </span>
-          </div>
+          </GlassButton>
         )}
       </button>
     </div>

@@ -7,7 +7,7 @@ export function PitchSection() {
   return (
     <div className="mt-12 text-center">
       <p className="type-pitch">
-        <ScrambleText text={t.pitchBig} />
+        <ScrambleText text={t.pitchBig} className="whitespace-pre-line" />
       </p>
       <p className="type-home-subtitle mx-auto mt-4 max-w-[330px]">
         <ScrambleText text={t.pitchSub} />
