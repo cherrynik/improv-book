@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
-import { ScrambleText, HomeIcon } from "@/shared/ui";
+import { House } from "lucide-react";
+import { ScrambleText } from "@/shared/ui";
 import { useI18n } from "@/shared/i18n";
 import type { Section } from "@/entities/section";
 
@@ -43,7 +44,7 @@ export function LessonNav({ prev, next, onOpen, onHome }: LessonNavProps) {
 
   const homeCard = (
     <button type="button" onClick={onHome} className={`${CARD} bg-ink text-left`}>
-      <HomeIcon className="h-5 w-5 text-paper/70" />
+      <House className="h-5 w-5 text-paper/70" />
       <div className="type-card-title mt-2 text-paper">
         <ScrambleText text={t.back} />
       </div>

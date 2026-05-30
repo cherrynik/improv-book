@@ -1,9 +1,5 @@
-import {
-  ScrambleText,
-  HeartIcon,
-  InstagramIcon,
-  TelegramIcon,
-} from "@/shared/ui";
+import { Heart } from "lucide-react";
+import { ScrambleText, InstagramIcon, TelegramIcon } from "@/shared/ui";
 import { useI18n } from "@/shared/i18n";
 
 export function CommunityCard() {
@@ -16,7 +12,7 @@ export function CommunityCard() {
       </div>
 
       <div className="community-surface relative overflow-hidden rounded-panel px-7 py-8 text-white">
-        <HeartIcon
+        <Heart
           fill="currentColor"
           strokeWidth={0}
           className="pointer-events-none absolute -right-6 -bottom-12 h-56 w-56 text-white/10"

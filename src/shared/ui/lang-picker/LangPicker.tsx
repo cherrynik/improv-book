@@ -1,4 +1,4 @@
-import { Globe as GlobeIcon } from "lucide-react";
+import { Globe } from "lucide-react";
 import { useI18n, type Locale } from "@/shared/i18n";
 import { cn } from "@/shared/lib/cn";
 
@@ -17,7 +17,7 @@ export function LangPicker({ className }: LangPickerProps) {
 
   return (
     <div className={cn("inline-flex items-center gap-1.5", className)}>
-      <GlobeIcon className="mr-1 h-4 w-4 text-white/40" />
+      <Globe className="mr-1 h-4 w-4 text-[#787878]" />
       {LOCALES.map(({ code, label }) => (
         <button
           key={code}
