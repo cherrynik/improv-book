@@ -1,5 +1,11 @@
 export { Kicker } from "./kicker/Kicker";
 export { Badge } from "./badge/Badge";
-export { LanguageSwitcher } from "./language-switcher/LanguageSwitcher";
+export { LangPicker } from "./lang-picker/LangPicker";
 export { ScrambleText } from "./scramble-text/ScrambleText";
-export { HeartIcon, SparkleIcon, InstagramIcon, TelegramIcon } from "./icons";
+export {
+  Heart as HeartIcon,
+  Sparkles as SparkleIcon,
+  House as HomeIcon,
+  Globe as GlobeIcon,
+} from "lucide-react";
+export { InstagramIcon, TelegramIcon } from "./icons";

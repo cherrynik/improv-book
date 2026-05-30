@@ -1,4 +1,4 @@
-import { ScrambleText, SparkleIcon, LanguageSwitcher } from "@/shared/ui";
+import { ScrambleText, SparkleIcon } from "@/shared/ui";
 import { useI18n } from "@/shared/i18n";
 
 export function HomeHeader() {
@@ -6,12 +6,9 @@ export function HomeHeader() {
 
   return (
     <header className="mb-[38px] animate-rise">
-      <div className="mb-[22px] flex items-center justify-between gap-3">
-        <div className="type-home-eyebrow group inline-flex items-center gap-[0.6em] rounded-pill bg-pitch px-[13px] py-[7px] text-white">
-          <ScrambleText text={t.eyebrow} />
-          <SparkleIcon className="h-[1em] w-[1em] transition-transform duration-500 ease-out group-hover:rotate-[360deg]" />
-        </div>
-        <LanguageSwitcher />
+      <div className="type-home-eyebrow group mb-[22px] inline-flex items-center gap-[0.6em] rounded-pill bg-pitch px-[13px] py-[7px] text-white">
+        <ScrambleText text={t.eyebrow} />
+        <SparkleIcon className="h-[1em] w-[1em] transition-transform duration-500 ease-out group-hover:rotate-[360deg]" />
       </div>
       <h1 className="type-home-title">
         <ScrambleText text={t.titleLead} />

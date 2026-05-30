@@ -21,6 +21,7 @@ export function LessonPage() {
       section={section}
       lesson={lesson}
       onBack={() => navigate("/")}
+      onOpen={(id) => navigate(`/lesson/${id}`)}
     />
   );
 }

@@ -74,3 +74,14 @@ export function getSections(locale: Locale): Section[] {
 export function getSectionById(id: string, locale: Locale): Section | undefined {
   return getSections(locale).find((section) => section.id === id);
 }
+
+export function getAdjacentSections(id: string, locale: Locale) {
+  const sections = getSections(locale);
+  const index = sections.findIndex((section) => section.id === id);
+  if (index === -1) return { prev: undefined, next: undefined };
+
+  const ready = (section: Section) => section.status === "ready";
+  const prev = [...sections.slice(0, index)].reverse().find(ready);
+  const next = sections.slice(index + 1).find(ready);
+  return { prev, next };
+}

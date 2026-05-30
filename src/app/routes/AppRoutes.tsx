@@ -2,6 +2,7 @@ import { useEffect, useState, type AnimationEvent } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { HomePage } from "@/pages/home";
 import { LessonPage } from "@/pages/lesson";
+import { SiteFooter } from "@/widgets/site-footer";
 
 export function AppRoutes() {
   const location = useLocation();
@@ -32,6 +33,7 @@ export function AppRoutes() {
         <Route path="/lesson/:sectionId" element={<LessonPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      <SiteFooter />
     </div>
   );
 }

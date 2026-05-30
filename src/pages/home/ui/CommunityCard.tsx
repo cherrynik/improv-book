@@ -16,7 +16,11 @@ export function CommunityCard() {
       </div>
 
       <div className="community-surface relative overflow-hidden rounded-panel px-7 py-8 text-white">
-        <HeartIcon className="pointer-events-none absolute -right-6 -bottom-12 h-56 w-56 text-white/10" />
+        <HeartIcon
+          fill="currentColor"
+          strokeWidth={0}
+          className="pointer-events-none absolute -right-6 -bottom-12 h-56 w-56 text-white/10"
+        />
 
         <div className="relative">
           <div className="type-kicker text-white/70">

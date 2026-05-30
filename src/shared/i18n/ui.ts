@@ -27,6 +27,8 @@ export const UI = {
     communitySubtitle: "Живые игры, джемы и сцена. Сюда я и зову всех, кто учится.",
     pitchBig: "Выходи на сцену.",
     pitchSub: "Теория — только начало. Настоящее обучение там, где есть зал.",
+    endTitle: "Иии… сцена!",
+    endNote: "Это конец — пока что. Следи за обновлениями.",
     enthusiasm: "Делаю на энтузиазме",
     enthusiasmSub:
       "Веду проект для ребят сам. Если материалы полезны — поддержи, чтобы разделов становилось больше.",
@@ -59,6 +61,8 @@ export const UI = {
       "Live games, jams and stage. This is where I invite everyone who's learning.",
     pitchBig: "Get on stage.",
     pitchSub: "Theory is just the start. Real learning happens where there's a room.",
+    endTitle: "And… scene!",
+    endNote: "That's it — for now. Stay tuned for updates.",
     enthusiasm: "Running on enthusiasm",
     enthusiasmSub:
       "I run this project myself. If the materials help — support it so more sections appear.",

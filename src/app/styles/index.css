@@ -445,6 +445,13 @@
     box-shadow: 0 18px 36px -22px var(--color-accent);
   }
 
+  .lesson-bar {
+    border-bottom-left-radius: calc(var(--scroll, 0) * var(--radius-panel));
+    border-bottom-right-radius: calc(var(--scroll, 0) * var(--radius-panel));
+    box-shadow: 0 12px 28px -18px
+      color-mix(in srgb, var(--color-accent) calc(var(--scroll, 0) * 55%), transparent);
+  }
+
   .bubble-incoming {
     border-radius: var(--radius-bubble) var(--radius-bubble) var(--radius-bubble)
       var(--radius-bubble-tail);
