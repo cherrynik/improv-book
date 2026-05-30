@@ -1,5 +1,7 @@
 # Импров для своих
 
+[![Контент уроков — Google Doc](https://img.shields.io/badge/Контент%20уроков-Google%20Doc-4285F4?logo=googledocs&logoColor=white)](https://docs.google.com/document/d/1A8dFc5RKP2lSWjZ72Rb-27CBy0fpXp8qom6mven8DU0)
+
 Обучающая платформа по импровизации — последовательный путь с нуля.
 React + TypeScript + Vite, Tailwind CSS v4, react-router. Архитектура —
 Feature-Sliced Design. Mobile-first. Шрифты (Unbounded, Instrument Sans)
