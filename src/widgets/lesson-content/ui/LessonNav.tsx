@@ -67,7 +67,7 @@ export function LessonNav({ prev, next, onOpen, onHome }: LessonNavProps) {
   );
 
   const homeCard = (
-    <NavCard onClick={onHome} className="bg-ink text-left">
+    <NavCard onClick={onHome} className="bg-ink text-paper text-left">
       <House className="h-5 w-5 text-icon-muted" />
       <div className="type-card-title mt-2 text-paper">
         <ScrambleText text={t.back} />
